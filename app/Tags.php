@@ -12,4 +12,7 @@ class Tags extends Model
     protected $hidden = [
         
     ];
+    public function posts(){
+        return $this->belongsToMany('App\Posts');
+    }
 }
