@@ -3,7 +3,7 @@
 {{-- sectio --}}
       	<!-- SECTION -->
 @section('content')
-	
+	<div class="col-md-8 hot-post-left">
 
 		<div class="post post-thumb">
 			<a class="post-img" href="blog-post.html"><img src="{{ asset('blog/img/hot-post-1.jpg') }}" alt=""></a>
@@ -95,7 +95,7 @@
 			
 		</div>
 		<!-- /row -->
-
+	</div>
 	
 
 <!-- /SECTION -->

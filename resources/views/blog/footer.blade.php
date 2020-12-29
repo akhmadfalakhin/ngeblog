@@ -22,11 +22,10 @@
 						<h3 class="footer-title">Categories</h3>
 						<div class="category-widget">
 							<ul>
-								<li><a href="#">Lifestyle <span>451</span></a></li>
-								<li><a href="#">Fashion <span>230</span></a></li>
-								<li><a href="#">Technology <span>40</span></a></li>
-								<li><a href="#">Travel <span>38</span></a></li>
-								<li><a href="#">Health <span>24</span></a></li>
+								@foreach ($category_widget as $item)
+								<li><a href="#">{{ $item->name }} <span>{{ $item->posts->count() }}</span></a></li>
+									
+								@endforeach
 							</ul>
 						</div>
 					</div>
@@ -36,9 +35,9 @@
 						<h3 class="footer-title">Tags</h3>
 						<div class="tags-widget">
 							<ul>
-									
-								<li><a href="#">good</a></li>
-								
+								@foreach ($tag as $item)
+								<li><a href="#">{{ $item->name }}</a></li>
+								@endforeach
 							</ul>
 						</div>
 					</div>

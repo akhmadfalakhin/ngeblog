@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use App\Category;
+use App\Tags;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,9 +16,11 @@ class BlogController extends Controller
      */
     public function index(Posts $posts)
     {
-       $data = $posts->orderBy('created_at', 'desc')->get();
+        $category = Category::all();
+        $tag = Tags::all();
+       $data = $posts->latest()->take(8)->get();
 
-       return view('blog', compact('data'));
+       return view('blog', compact('data', 'category', 'tag'));
     }
 
     /**
@@ -87,7 +91,26 @@ class BlogController extends Controller
 
     public function isi_blog($slug)
     {
+        $category_widget = Category::all();
+        $tag = Tags::all();
         $data = Posts::where('slug', $slug)->get();
-        return view('blog1.isi', compact('data'));
+        return view('blog1.isi', compact('data', 'tag', 'category_widget'));
+    }
+
+    public function list_blog()
+    {
+        $category_widget = Category::all();
+        $tag = Tags::all();
+        $data = Posts::latest()->paginate(6);
+        return view('blog1.list', compact('data', 'tag', 'category_widget'));
+    }
+
+    public function list_category(category $category){
+        $category_widget = Category::all();
+         $tag = Tags::all();
+
+        $data = $category->posts()->paginate(6);
+        return view('blog1.list', compact('data', 'tag', 'category_widget'));
+    
     }
 }

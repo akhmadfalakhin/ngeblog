@@ -45,7 +45,7 @@
   
     <div class="form-group">
         <label>Kontent</label>
-        <textarea name="content" class="form-control"></textarea>
+        <textarea name="content" id="content" class="ckeditor form-control"></textarea>
     </div>
   
     <div class="form-group">
