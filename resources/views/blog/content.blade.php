@@ -1,4 +1,4 @@
-@include('blog.header')
+@include('blog.head')
     <div class="section">
 		<!-- container -->
 		<div class="container">
