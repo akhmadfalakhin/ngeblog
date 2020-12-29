@@ -13,11 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', 'BlogController@index');
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/','DashboardController@index')->name('dashboard');
+    Route::get('/dashboard','DashboardController@index')->name('dashboard');
     Route::resource('category', 'CategoryController');
     Route::resource('tag', 'TagController');
     Route::get('post/restore/{id}', 'PostController@restore')->name('post.restore');
