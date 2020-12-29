@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'BlogController@index');
+// Route::get('/isi-post', function(){
+//     return view('blog1.isi');
+// });
+
+Route::get('/isi-post/{slug}', 'BlogController@isi_blog')->name('blog.isi');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard','DashboardController@index')->name('dashboard');
     Route::resource('category', 'CategoryController');
