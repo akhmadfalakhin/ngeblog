@@ -1,7 +1,7 @@
  <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">Blog</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -30,6 +30,11 @@
                   <li><a class="nav-link" href="{{ route('tag.index') }}">List Tag</a></li>
                 </ul>
               </li>
-              
+               <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class='bx bxs-user-circle'></i> <span>User</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="{{ route('user.index') }}">List User</a></li>
+                </ul>
+              </li>   
         </aside>
-      </div>
+</div>

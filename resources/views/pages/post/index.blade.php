@@ -15,6 +15,7 @@
                 <th>Nama Post</th>
                 <td>Kategori</td>
                 <td>Tag</td>
+                <td>Author</td>
                 <th>Thumbnail</th>
                 <th>Action</th>
             </tr>
@@ -27,9 +28,10 @@
                 <td>{{ $hasil->category->name }}</td>
                 <td>@foreach ($hasil->tags as $tag)
                     <ul>
-                        <li>{{ $tag->name }}</li>
+                        <span class="badge badge-primary">{{ $tag->name }}</span>
                     </ul>
-                @endforeach</td>
+                    @endforeach</td>
+                <td>{{ $hasil->user->name }}</td>
                 <td><img src="{{ asset( $hasil->gambar) }}" style="width: 80px" class="img-fluid" alt=""></td>
                 <td>
                     <a href="{{ route('post.edit', $hasil->id) }}" class="btn btn-primary btn-sm">Edit</a>

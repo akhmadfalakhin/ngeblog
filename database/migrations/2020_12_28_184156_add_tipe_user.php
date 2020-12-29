@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TambahFieldUserPost extends Migration
+class AddTipeUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class TambahFieldUserPost extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('user_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('tipe')->default(0);
         });
     }
 

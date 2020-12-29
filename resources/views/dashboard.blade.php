@@ -1,4 +1,5 @@
 @extends('includes.home')
+@section('subjudul', 'Dashboard')
 @section('content')
-   <h2>berhasil</h2>
+   
 @endsection

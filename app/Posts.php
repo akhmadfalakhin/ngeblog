@@ -10,7 +10,7 @@ class Posts extends Model
      use SoftDeletes;
 
     protected $fillable = [
-        'judul', 'category_id', 'content', 'gambar', 'slug'
+        'judul', 'category_id', 'content', 'gambar', 'slug', 'user_id'
     ];
     protected $hidden = [
         
@@ -19,7 +19,12 @@ class Posts extends Model
     public function category() {
         return $this->belongsTo(category::class, 'category_id', 'id');
     }
+
     public function tags(){
         return $this->belongsToMany('App\Tags');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

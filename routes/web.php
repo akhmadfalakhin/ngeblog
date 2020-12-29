@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('post/kill/{id}', 'PostController@kill')->name('post.kill');
     Route::get('post/tampil_hapus', 'PostController@tampil_hapus')->name('post.tampil_hapus');
     Route::resource('post', 'PostController');
+    Route::resource('user', 'UserController');
     
 });
 
