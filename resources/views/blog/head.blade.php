@@ -55,16 +55,15 @@
 
 					<!-- search & aside toggle -->
 					<div class="nav-btns">
-						<button class="aside-btn"><i class="fa fa-bars"></i></button>
-						<button class="search-btn"><i class="fa fa-search"></i></button>
-						<div id="nav-search">
-							<form>
-								<input class="input" name="search" placeholder="Enter your search...">
+						
+							<form action="{{ route('cari') }}">
+							<input class="form-control form-control-sm ml-3 w-75" name="cari" type="text" placeholder="Search"
+								aria-label="Search">
 							</form>
 							<button class="nav-close search-close">
 								<span></span>
 							</button>
-						</div>
+						
 					</div>
 					<!-- /search & aside toggle -->
 				</div>
@@ -83,7 +82,7 @@
 								<div class="dropdown-body">
 									<ul class="dropdown-list">
 										@foreach ($category_widget as $item)
-											<li><a href="#">{{ $item->name }} <span>{{ $item->posts->count() }}</span></a></li>		
+											<li><a href="#">{{ $item->name }}</span></a></li>		
 										@endforeach
 									</ul>
 								</div>

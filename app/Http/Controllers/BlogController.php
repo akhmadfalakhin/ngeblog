@@ -16,11 +16,11 @@ class BlogController extends Controller
      */
     public function index(Posts $posts)
     {
-        $category = Category::all();
+        $category_widget = Category::all();
         $tag = Tags::all();
        $data = $posts->latest()->take(8)->get();
 
-       return view('blog', compact('data', 'category', 'tag'));
+       return view('blog', compact('data', 'category_widget', 'tag'));
     }
 
     /**
@@ -112,5 +112,12 @@ class BlogController extends Controller
         $data = $category->posts()->paginate(6);
         return view('blog1.list', compact('data', 'tag', 'category_widget'));
     
+    }
+    public function cari(request $request){
+         $category_widget = Category::all();
+         $tag = Tags::all();
+
+        $data = Posts::where('judul', $request->cari)->orwhere('judul','like','%'.$request->cari.'%')->paginate(6);
+        return view('blog1.list', compact('data', 'tag', 'category_widget'));
     }
 }
